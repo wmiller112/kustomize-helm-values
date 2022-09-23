@@ -1,0 +1,14 @@
+apiVersion: builtin
+kind: HelmChartInflationGenerator
+metadata:
+  name: hello-world
+releaseName: hello-world
+name: hello-world
+version: 0.1.0
+# comment if local
+repo: https://helm.github.io/examples
+# If chart is local, set relative path FROM the /kustomize kustomization.yaml whose generator references a directory /helm
+# chartHome: ../../../charts
+valuesInline:
+  image:
+    tag: 1.15

@@ -1,0 +1,8 @@
+apiVersion: builtin
+kind: HelmChartInflationGenerator
+metadata:
+  name: hello-world
+valuesInline:
+  serviceAccount:
+    create: false
+    name: kustomize-created
