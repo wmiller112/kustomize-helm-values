@@ -1,17 +1,17 @@
 # About
 This repo contains a demonstration of Kustomizing values of a Helm chart that is being deployed via the [Kustomize Helm Chart inflator](https://github.com/kubernetes-sigs/kustomize/blob/master/examples/chart.md) by generating the `HelmChartInflationGenerator` via a separate kustomization. This repo is structured as follows
 
-- `envs/` - base and patches to generate necessary config for a given env
-  - `base/` - create a namespace
+- `envs/`
+  - `base/` - Create a namespace
   - `patches/`
-    - `demo1/` - uses the envs/base and points the generator to helm/base
-    - `demo2/` - uses the envs/base, points to helm/patches/demo2 as a `generator`, creates a serviceAccount named `kustomize-created`
+    - `demo1/` - Point to `helm/base` as a `generator`
+    - `demo2/` - Create a serviceAccount named `kustomize-created`, and points to `helm/patches/demo2` as a `generator`
 
 
 - `helm/` - base and patches for `HelmChartInflationGenerator`
-  - `base/` - points to hello-world chart, sets valuesInline: image.tag to `1.15`
+  - `base/` - Points to hello-world chart, sets `valuesInline`: image.tag to `1.15`
   - `patches/`
-    - `demo2` - sets valuesInline: serviceAccount.create false, serviceAccount.name: `kustomize-created`
+    - `demo2` - sets `valuesInline`: serviceAccount.create `false`, serviceAccount.name: `kustomize-created`
 
 ## Try it out
 ### Demo1  
